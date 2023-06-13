@@ -14,7 +14,7 @@ let containsDuplicate = function (nums) {
   return false;
 };
 
-console.log(containsDuplicate([8, 4, 5, 6, 5]));
+// console.log(containsDuplicate([8, 4, 5, 6, 5]));
 
 // Second approach O(n2)
 let containsDuplicate2 = (array) =>{
@@ -30,7 +30,7 @@ let containsDuplicate2 = (array) =>{
 }
 
 
-console.log(containsDuplicate2([8, 4, 5, 6]));
+// console.log(containsDuplicate2([8, 4, 5, 6]));
 
 
 ////////////////////////////////////////////////////////////
@@ -47,6 +47,34 @@ let isAnagram = (s, t) =>{
     
 }
 
-console.log(isAnagram('anagram', 'nagaram'));
-console.log(isAnagram('rat', 'car'));
-console.log(isAnagram('alex', 'xela'));
+// console.log(isAnagram('anagram', 'nagaram'));
+// console.log(isAnagram('rat', 'car'));
+// console.log(isAnagram('alex', 'xela'));
+
+// Second solution
+
+let isAnagram2 = (first, second) =>{
+    if(first.length !== second.length) return false
+
+    const lookup = {}
+
+    for (let i in first) {
+        let letter = first[i]
+        lookup[letter] ? lookup[letter] ++ : lookup[letter] = 1
+    }
+
+    for (let i in second) {
+        let letter = second[i]
+        if(!lookup[letter]){
+            return false
+        }else{
+            lookup[letter] --
+        }
+    }
+    return true
+
+}
+
+console.log(isAnagram2('anagram', 'nagaram'));
+console.log(isAnagram2('rat', 'car'));
+console.log(isAnagram2('alex', 'xela'));
