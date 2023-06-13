@@ -31,3 +31,22 @@ let containsDuplicate2 = (array) =>{
 
 
 console.log(containsDuplicate2([8, 4, 5, 6]));
+
+
+////////////////////////////////////////////////////////////
+
+// Valid Anagram
+// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+let isAnagram = (s, t) =>{
+    let firstWord = s.split('').sort().join('')
+    let secondWord = t.split('').sort().join('')
+    if(firstWord.length !== secondWord.length) return false
+    return firstWord === secondWord ?  true : false
+    
+    
+}
+
+console.log(isAnagram('anagram', 'nagaram'));
+console.log(isAnagram('rat', 'car'));
+console.log(isAnagram('alex', 'xela'));
