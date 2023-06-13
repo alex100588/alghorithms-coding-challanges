@@ -35,7 +35,7 @@ let containsDuplicate2 = (array) =>{
 
 ////////////////////////////////////////////////////////////
 
-// Valid Anagram
+// 2. Valid Anagram
 // Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 
 let isAnagram = (s, t) =>{
@@ -75,6 +75,27 @@ let isAnagram2 = (first, second) =>{
 
 }
 
-console.log(isAnagram2('anagram', 'nagaram'));
-console.log(isAnagram2('rat', 'car'));
-console.log(isAnagram2('alex', 'xela'));
+// console.log(isAnagram2('anagram', 'nagaram'));
+// console.log(isAnagram2('rat', 'car'));
+// console.log(isAnagram2('alex', 'xela'));
+
+
+// 3 Two Sum
+// Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+let twoSum = (nums, target) =>{
+    let totals = []
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if(nums[i] + nums[j] === target){
+                // console.log(nums[i], nums[j]);
+                totals.push(nums[i], nums[j])
+            }
+        }
+    }
+    return totals
+}
+
+console.log(twoSum([7,11,2,15], 9));
+console.log(twoSum([3,2,4], 6));
+console.log(twoSum([3,3], 6));
