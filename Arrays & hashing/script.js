@@ -96,6 +96,27 @@ let twoSum = (nums, target) =>{
     return totals
 }
 
-console.log(twoSum([7,11,2,15], 9));
-console.log(twoSum([3,2,4], 6));
-console.log(twoSum([3,3], 6));
+// console.log(twoSum([7,11,2,15], 9));
+// console.log(twoSum([3,2,4], 6));
+// console.log(twoSum([3,3], 6));
+
+
+// 4. Group Anagrams
+// Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+let groupAnagram = (strs) =>{
+    let sorted = strs.map(str => str.split('').sort().join(''))
+    const map = {}
+//    console.log(sorted);
+    for (let i = 0; i < sorted.length; i++) {
+        // console.log(sorted);
+        if(!map[sorted[i]]){
+            map[sorted[i]] = [sorted[i]]
+        }else{
+            map[sorted[i]].push(sorted[i])
+        }
+    }
+    return map
+}
+
+console.log(groupAnagram(["eat","tea","tan","ate","nat","bat"]));
