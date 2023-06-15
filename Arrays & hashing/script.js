@@ -125,7 +125,7 @@ let groupAnagram = (strs) =>{
 // 5 Numbers repeated
 // Given an integer array nums return all numbers that are repeated .
 
-let topKFrequent = (arr) =>{
+let repeatedNums = (arr) =>{
     let nums = []
     for (let i = 0; i < arr.length; i++) {
         for (let j = i + 1; j < arr.length; j++) {
@@ -137,4 +137,36 @@ let topKFrequent = (arr) =>{
     return new Set(nums)
 }
 
-console.log(topKFrequent([1,1,1,2,2,3]));
+// console.log(repeatedNums([1,1,1,2,2,3]));
+
+
+// 6. Top K Frequent Elements
+// Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+
+
+let topKFrequent =(nums, k) =>{
+    let map = {}
+    for (let num of nums){
+        // console.log(num);
+        if(!map[num]){
+            map[num] = 1
+        }else{
+            map[num]++
+        }
+        
+    }
+    
+    let sorted = Object.entries(map).sort((a, b) => b[1] - a[1])
+
+    let result = []
+    for(let [i, key, value] of sorted.entries()){
+        // console.log(i, key, value);
+        result.push(key[0])
+    }
+
+    
+    return result.slice(0, k)
+};
+
+console.log(topKFrequent([30, 10,10,10,20,20,], 2));
+console.log(topKFrequent([30, 10,10,10,20,20,20, 50,50,50,50,50,50,12,12,12,12,12,12], 3));
