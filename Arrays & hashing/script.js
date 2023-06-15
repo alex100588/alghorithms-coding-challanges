@@ -116,7 +116,25 @@ let groupAnagram = (strs) =>{
             map[sorted[i]].push(sorted[i])
         }
     }
+
     return map
 }
 
-console.log(groupAnagram(["eat","tea","tan","ate","nat","bat"]));
+// console.log(groupAnagram(["eat","tea","tan","ate","nat","bat"]));
+
+// 5 Numbers repeated
+// Given an integer array nums return all numbers that are repeated .
+
+let topKFrequent = (arr) =>{
+    let nums = []
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if(arr[i] === arr[j]){
+                nums.push(arr[i])
+            }
+        }
+    }
+    return new Set(nums)
+}
+
+console.log(topKFrequent([1,1,1,2,2,3]));
