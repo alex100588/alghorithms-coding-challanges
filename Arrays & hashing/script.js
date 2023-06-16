@@ -146,15 +146,16 @@ let repeatedNums = (arr) =>{
 
 let topKFrequent =(nums, k) =>{
     let map = {}
-    for (let num of nums){
-        // console.log(num);
-        if(!map[num]){
-            map[num] = 1
+    for (let i = 0; i < nums.length; i++) {
+        // console.log(nums[i]);
+        if(!map[nums[i]]){
+            map[nums[i]] = 1
         }else{
-            map[num]++
+            map[nums[i]]++
         }
         
     }
+    // console.log(map);
     
     let sorted = Object.entries(map).sort((a, b) => b[1] - a[1])
 
@@ -164,9 +165,9 @@ let topKFrequent =(nums, k) =>{
         result.push(key[0])
     }
 
-    
     return result.slice(0, k)
 };
 
-console.log(topKFrequent([30, 10,10,10,20,20,], 2));
-console.log(topKFrequent([30, 10,10,10,20,20,20, 50,50,50,50,50,50,12,12,12,12,12,12], 3));
+// console.log(topKFrequent([30, 10,10,10,20,20,], 2));
+// console.log(topKFrequent([30, 10,10,10,20,20,20, 50,50,50,50,50,50,12,12,12,12,12,12], 3));
+
