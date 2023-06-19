@@ -3,6 +3,7 @@
 
 const isPalindrome = (s) => {
     s = s.replace(/\W|_/g, '').toLowerCase()
+    console.log(s);
     let word = s.split('').reverse().join('')
     
     return s === word
